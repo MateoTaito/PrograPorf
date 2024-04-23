@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import InicioCardAyudante from "./InicioCardAyudante";
@@ -24,75 +24,25 @@ function inicio_carusel() {
     },
   };
 
-  const ayudantes = [
-    {
-      id: 1,
-      nombre: "Hans Barnert",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
+  // Extraer Informacion Ayudantes - API
+  const url = "http://127.0.0.1:8000/ayudantes/"
+  const [data , setData] = useState(null)
+  useEffect(() => {
+    fetch(url).then((response) => response.json())
+    .then((data) => setData(data))
+  }, [])
 
-    {
-      id: 2,
-      nombre: "Benjamin Eolo",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
+  const ayudante = data !== null
+  ? data.map(item => (
+      <InicioCardAyudante
+        key={item.id} 
+        nombre={item.nombre}
+        descripcion={item.descripcion}
+        imgURL={"src/assets/persona_aleatoria.jpg"}
+      />
+    ))
+  : [];
 
-    {
-      id: 3,
-      nombre: "Aldo Jimenez",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
-
-    {
-      id: 4,
-      nombre: "Cristobal Quijanes",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
-    {
-      id: 5,
-      nombre: "Cristobal Quijanes",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
-    {
-      id: 6,
-      nombre: "Cristobal Quijanes",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
-    {
-      id: 7,
-      nombre: "Cristobal Quijanes",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
-    {
-      id: 8,
-      nombre: "Cristobal Quijanes",
-      descripcion:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit Natus commodi quo sunt quaerat amet nobis eaque vel nisi provident optio perferendis veniam dolor eos beatae dicta nemo ad tenetur doloremque",
-      imgURL: "src/assets/persona_aleatoria.jpg",
-    },
-  ];
-
-  const ayudante = ayudantes.map((item) => (
-    <InicioCardAyudante 
-      nombre={item.nombre}
-      descripcion={item.descripcion}
-      imgURL={item.imgURL}
-    />
-  ));
 
   return (
     <div className="carrusel_ayudantes_margin">

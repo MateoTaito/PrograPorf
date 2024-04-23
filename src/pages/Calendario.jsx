@@ -45,7 +45,7 @@ const Calendario = () => {
         />
         <CalendarEvent2
           day="fri"
-          startTime={"16"}
+          startTime={"10"}
           endTime={"22"}
           description="Cordero"
         />
