@@ -1,9 +1,9 @@
 import React from 'react';
-import Actividades_cards from './actividades_cards'
+import ActividadesCards from './ActividadesCards'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-function actividades_tabla() {
+function ActividadesTabla() {
 
     const responsive = {
         superLargeDesktop: {
@@ -65,7 +65,7 @@ function actividades_tabla() {
     ]
 
     const actividad = actividades.map((item) => (
-        <Actividades_cards 
+        <ActividadesCards 
           Act={item.titulo}
           Desc={item.descripcion}
           imgURL={item.imgUrl}
@@ -84,4 +84,4 @@ function actividades_tabla() {
   )
 }
 
-export default actividades_tabla
+export default ActividadesTabla

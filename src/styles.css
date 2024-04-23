@@ -205,7 +205,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 100px;
     width: 600px;
     background-color: white;
     padding-bottom: 30px;
@@ -228,6 +228,18 @@
     font-weight: 700;
 }
 
+.text_error{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: rgb(138, 2, 2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
 .underline_login{
     width: 61px;
     height: 6px;
@@ -248,10 +260,30 @@
     border-width: 1px;
 }
 
+.input_textarea{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 200px;
+    width: 480px;
+    border-radius: 6px;
+    background: white;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
 .input_login img{
     width: 20px;
     height: 20px;
     vertical-align: left;
+}
+
+.input_textarea img{
+    width: 20px;
+    height: 20px;
+    vertical-align: left;
+    margin: 20px;
 }
 
 .inputs_login{
@@ -259,6 +291,16 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+}
+
+.input_textarea textarea{
+    height: 180px;
+    width: 400px;
+    margin: 20px;
+    background: transparent;
+    outline: none;
+    color: rgb(0, 0, 0);
+    font-size: 19px;
 }
 
 .input_login input{
@@ -313,18 +355,29 @@
     border-width: 6px;
 }
 
+.submit_login input{
+    border: none;
+    padding: 10px 20px; /* Ajustar el relleno según sea necesario */
+    background-color: #ffffff; /* Cambiar el color de fondo del botón */
+    color: rgb(0, 0, 0); /* Cambiar el color del texto */
+    cursor: pointer;
+    width: 220px;
+    border-radius: 40px;
+}
+
 .gray_login{
     background: white;
     color: rgb(0, 0, 0);
 }
 
 /*ACTIVIDADES*/
+
 .actv-body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     width: 100%;
-    height: 50vh;
+    height: 600px;
     background-color: rgb(255, 255, 255);
     font: 'roboto', sans-serif;
     display: flex;
@@ -422,15 +475,28 @@ img{
 
 
 /* GRID SETUP */
+
+.calendar-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    border: 1px solid #000000; /* Solo para visualizar el contenedor */
+  }
+
+
 .calendar {
   display: grid;
   grid-gap: 1px;
+  grid-template-columns: repeat(7, 1fr); /* Por ejemplo, para 7 días en una fila */
+  gap: 5px; /* Espacio entre los elementos */
+  padding: 10px; /* Espaciado interno */
   background-color: #eee;
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
 /*   padding: 5px; */
 }
+
 
 .weekly-byhour {
   /* NAMED LINE NUMBERS (between tracks): 
@@ -440,9 +506,6 @@ img{
     [time] auto [sun] 1fr [mon] 1fr [tue] 1fr [wed] 1fr [thu] 1fr [fri] 1fr [sat] 1fr [end-col];
   grid-template-rows:
     [day]  auto
-    [h05]  1fr
-    [h06]  1fr
-    [h07]  1fr 
     [h08]  1fr
     [h09]  1fr
     [h10]  1fr 
@@ -457,13 +520,7 @@ img{
     [h19]  1fr 
     [h20]  1fr 
     [h21]  1fr 
-    [h22]  1fr 
-    [h23]  1fr 
-    [h00]  1fr 
-    [h01]  1fr 
-    [h02]  1fr 
-    [h03]  1fr 
-    [h04]  1fr 
+    [h22]  1fr  
     [end-row];
 }
 
@@ -494,14 +551,6 @@ li.event { background-color: #82caaf; position: absolute; height: 100%; width: 1
 .sat { grid-area: day / sat; }
 
 /* TIME HEADINGS  row / col */
-.h00 { grid-area: h00 / time; }
-.h01 { grid-area: h01 / time; }
-.h02 { grid-area: h02 / time; }
-.h03 { grid-area: h03 / time; }
-.h04 { grid-area: h04 / time; }
-.h05 { grid-area: h05 / time; }
-.h06 { grid-area: h06 / time; }
-.h07 { grid-area: h07 / time; }
 .h08 { grid-area: h08 / time; }
 .h09 { grid-area: h09 / time; }
 .h10 { grid-area: h10 / time; }
@@ -517,11 +566,74 @@ li.event { background-color: #82caaf; position: absolute; height: 100%; width: 1
 .h20 { grid-area: h20 / time; }
 .h21 { grid-area: h21 / time; }
 .h22 { grid-area: h22 / time; }
-.h23 { grid-area: h23 / time; }
 
 
 /*----------CONTACTO---------*/
 
 .margen_form{
     margin: 200px;
+}
+
+
+/*CONTACTOLOGIN*/
+
+.contactologin-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 100px;
+    width: 600px;
+    background-color: white;
+    padding-bottom: 30px;
+    border: black;
+    border-width: 6px;
+}
+
+
+.contactoreunion-container p{
+    font-weight: bold;
+}
+
+.contactoreunion-container p span{
+    font-weight: 200;
+}
+
+.boton-contactologin{
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    width: 120px;
+    height: 39px;
+    columns: #fff;
+    background: #01579B;
+    border-radius: 20px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    border-color: #01579B;
+    border-style: solid;
+    border-width: 6px;
+}
+
+.submit-container_contactologin{
+    display: flex;
+    gap: 10px;
+    margin: 10px auto;
+    justify-content: flex-end;
+}
+
+.submit_login button{
+    border: none;
+    background-color: #ffffff; /* Cambiar el color de fondo del botón */
+    color: rgb(0, 0, 0); /* Cambiar el color del texto */
+    cursor: pointer;
+    width: 120px;
+    border-radius: 20px;
+}
+
+.contactoreunion-margin{
+    border: 1px solid;
+    padding: 10px;
+    margin: 10px;
 }

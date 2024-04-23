@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import userIcon from "../../assets/WhatsApp Image 2023-11-07 at 22.08.13 (1).jpeg";
-import emailIcon from "../../assets/WhatsApp Image 2023-11-07 at 22.08.13 (2).jpeg";
-import passIcon from "../../assets/WhatsApp Image 2023-11-07 at 22.08.13.jpeg";
-import Footer from "../footer";
+import userIcon from "../assets/WhatsApp Image 2023-11-07 at 22.08.13 (1).jpeg";
+import emailIcon from "../assets/WhatsApp Image 2023-11-07 at 22.08.13 (2).jpeg";
+import passIcon from "../assets/WhatsApp Image 2023-11-07 at 22.08.13.jpeg";
+import Footer from "../components/LayoutFooter";
+import ContactoListaReuniones from "../components/ContactoListaReuniones";
 
 export default function LoginSignup() {
   const [action, setAction] = useState("Sign up");
+
+  const handleLogin = () => {
+    if (action === "Login"){
+      window.location.href = '/ContactoLogin';
+    }
+  }
 
   return (
     <>
@@ -58,8 +65,7 @@ export default function LoginSignup() {
               action === "Login" ? "submit_login gray_login" : "submit_login"
             }
             onClick={() => {
-              setAction("Login");
-            }}
+              { handleLogin();setAction("Login");}}}
           >
             Login
           </div>

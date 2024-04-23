@@ -6,7 +6,6 @@ function Inicio_card_prof(props) {
     <div className="card-gen">
       <div className="image-content">
         <span className="overlay-img"></span>
-
         <div className="card-image">
           <img
             src={props.imgURL}
@@ -14,7 +13,6 @@ function Inicio_card_prof(props) {
             className="card-img"
           />
         </div>
-        
         <div className="card-content">
           <h2 className="nombre">{props.nombre}</h2>
           <p className="descripcion">

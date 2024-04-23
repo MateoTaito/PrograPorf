@@ -1,14 +1,14 @@
 import React from "react";
-import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap"; // Dependencia 2
 import { Outlet, Link } from "react-router-dom";
 import "../styles.css"
 
-function nav() {
+function Layout() {
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand as={Link} to={"/Inicio"}>
+          <Navbar.Brand as={Link} to={"/"}>
             Fz-104
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -40,4 +40,4 @@ function nav() {
   );
 }
 
-export default nav;
+export default Layout;
